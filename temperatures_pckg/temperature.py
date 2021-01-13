@@ -8,7 +8,9 @@ def average_temperatures(filename):
     number_of_countries = len(data_buffer[0]) -1
     list_of_countries = get_countries(data_buffer)
     list_of_temperatures = get_temperatures_by_country(data_buffer,len(list_of_countries)+1)
-    print_info(list_of_countries,list_of_temperatures)
+    minmax = min_max_modular(list_of_countries, list_of_temperatures)
+    #print_info(list_of_countries,list_of_temperatures)
+    print_modular(list_of_countries,minmax)
 
 
 def get_countries(buffer):
@@ -30,6 +32,11 @@ def get_temperatures_by_country(buffer, num_of_ct):
     return ret
 
 
+def print_modular(countries, minmax_years):
+
+    for i in range(len(countries)):
+        print(countries[i] + " => " + minmax_years[i][0].rstrip() + ", " + minmax_years[i][1].rstrip())
+
 
 def print_info(countries, temperatures):
     country1min = temperatures[-1][temperatures[0].index(min(temperatures[0]))]
@@ -42,6 +49,20 @@ def print_info(countries, temperatures):
     print(countries[0] + " => " + country1min.rstrip() + ", " + country1max.rstrip())
     print(countries[1] + " => " + country2min.rstrip() + ", " + country2max.rstrip())
     print(countries[2] + " => " + country3min.rstrip() + ", " + country3max.rstrip())
+
+
+def min_max_modular(countries, temperatures):
+
+    ret = []
+
+    for i in range(len(countries)):
+        ret.append([])
+
+    for i in range(len(countries)):
+        ret[i].append(temperatures[-1][temperatures[i].index(min(temperatures[i]))])
+        ret[i].append(temperatures[-1][temperatures[i].index(max(temperatures[i]))])
+
+    return ret
 
 
 
