@@ -1,6 +1,6 @@
 class Exam:
 
-    def __init__(self, str):
+    def __init__(self):
         pass
 
 
@@ -21,6 +21,4 @@ class Exam:
 
         return sol
 
-
-print(unique_characters("anagram"))
 
