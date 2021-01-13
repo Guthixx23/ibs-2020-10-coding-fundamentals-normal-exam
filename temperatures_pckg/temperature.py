@@ -8,17 +8,7 @@ def average_temperatures(filename):
     number_of_countries = len(data_buffer[0]) -1
     list_of_countries = get_countries(data_buffer)
     list_of_temperatures = get_temperatures_by_country(data_buffer,len(list_of_countries)+1)
-
-    country1min = list_of_temperatures[-1][list_of_temperatures.index(min(list_of_temperatures[0]))]
-    country1max = list_of_temperatures[-1][list_of_temperatures.index(max(list_of_temperatures[0]))]
-    country2min = list_of_temperatures[-1][list_of_temperatures.index(min(list_of_temperatures[1]))]
-    country2max = list_of_temperatures[-1][list_of_temperatures.index(max(list_of_temperatures[1]))]
-    country3min = list_of_temperatures[-1][list_of_temperatures.index(min(list_of_temperatures[2]))]
-    country3max = list_of_temperatures[-1][list_of_temperatures.index(max(list_of_temperatures[2]))]
-
-
-
-    pass
+    print_info(list_of_countries,list_of_temperatures)
 
 
 def get_countries(buffer):
@@ -37,14 +27,23 @@ def get_temperatures_by_country(buffer, num_of_ct):
         for k in range(len(line)):
             ret[k].append(line[k])
 
-    for i in ret[-1]:
-        i.strip()
-
-
-
-
-
     return ret
+
+
+
+def print_info(countries, temperatures):
+    country1min = temperatures[-1][temperatures[0].index(min(temperatures[0]))]
+    country1max = temperatures[-1][temperatures[0].index(max(temperatures[0]))]
+    country2min = temperatures[-1][temperatures[1].index(min(temperatures[1]))]
+    country2max = temperatures[-1][temperatures[1].index(max(temperatures[1]))]
+    country3min = temperatures[-1][temperatures[2].index(min(temperatures[2]))]
+    country3max = temperatures[-1][temperatures[2].index(max(temperatures[2]))]
+
+    print(countries[0] + " => " + country1min.rstrip() + ", " + country1max.rstrip())
+    print(countries[1] + " => " + country2min.rstrip() + ", " + country2max.rstrip())
+    print(countries[2] + " => " + country3min.rstrip() + ", " + country3max.rstrip())
+
+
 
 
 
