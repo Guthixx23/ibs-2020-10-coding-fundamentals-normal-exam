@@ -58,7 +58,7 @@ The application should write the data to the console as *key => value* pairs.
 
 #### Example
 
-[Example file can be found here.](./results.txt)
+[Example file can be found here.](temperatures_pckg/results.txt)
 
 Output
 

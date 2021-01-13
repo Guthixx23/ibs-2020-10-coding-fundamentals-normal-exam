@@ -14,4 +14,3 @@ class Unique_test(unittest.TestCase):
 
         self.assertEqual(inst.unique_characters("aabbcdeef"), ['c','d','f'])
 
-        
