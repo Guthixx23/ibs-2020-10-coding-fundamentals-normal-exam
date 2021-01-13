@@ -1,9 +1,9 @@
 class Exam:
-
+    #dummy init function
     def __init__(self):
         pass
 
-
+    #function to determin unique characters in the string
     def unique_characters(self, str):
 
         dict = {}
